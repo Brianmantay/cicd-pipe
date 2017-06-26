@@ -1,0 +1,40 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "newStorageAccountName": {
+      "value": "dockerhostbmantay"
+    },
+    "adminUsername": {
+      "value": "bmantay"
+    },
+    "adminPassword": {
+      "reference": {
+        "keyVault": { 
+          "id": "/subscriptions/a57e3a7f-61b6-4fa1-8efd-f3c63e13ffbd/resourceGroups/keyvault/providers/Microsoft.KeyVault/vaults/keyvault-bmantay"
+        },
+        "secretName": "adminPassword"
+      }
+    },
+    "dnsNameForPublicIP": {
+      "value": "dockerhost-bmantay"
+    },
+    "sqlServerName": {
+      "value": "sqlserver-bmantay"
+    },
+    "sqlAdminUsername": {
+      "value": "bmantay"
+    },
+    "sqlAdminPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/a57e3a7f-61b6-4fa1-8efd-f3c63e13ffbd/resourceGroups/keyvault/providers/Microsoft.KeyVault/vaults/keyvault-bmantay"
+        },
+        "secretName": "sqlAdminPassword"
+      }
+    },
+    "sqlDatabaseName": {
+      "value": "teamCityDb"
+    }
+  }
+}
