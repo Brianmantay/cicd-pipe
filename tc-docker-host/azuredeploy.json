@@ -68,7 +68,6 @@
     "imageOffer": "UbuntuServer",
     "OSDiskName": "osdiskfordockersimple",
     "nicName": "dockerHostNic",
-    "extensionName": "DockerExtension",
     "addressPrefix": "10.0.0.0/16",
     "subnetName": "Subnet",
     "subnetPrefix": "10.0.0.0/24",
@@ -196,7 +195,7 @@
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(variables('vmName'),'/', variables('extensionName'))]",
+      "name": "[concat(variables('vmName'),'/DockerExtension')]",
       "apiVersion": "2015-05-01-preview",
       "location": "[resourceGroup().location]",
       "dependsOn": [
@@ -232,6 +231,27 @@
             "maxSizeBytes": "1073741824"
         }
       }]
+    },
+    {
+      "name": "[concat(variables('vmName'),'/CustomScriptExtension')]",
+      "type": "extensions",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+          "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+      ],
+      "properties": {
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "fileUris": [
+            "https://raw.githubusercontent.com/Brianmantay/cicd-pipe/master/tc-docker-host/setup.sh"
+          ],
+          "commandToExecute": "sh setup.sh"
+        }
+      }
     }
   ]
 }
