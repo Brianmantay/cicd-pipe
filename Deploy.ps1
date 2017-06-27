@@ -1,4 +1,4 @@
-﻿$resourceGroup = "docker"
+﻿$resourceGroup = "cicd"
 $timestamp = [int](Get-Date -UFormat %s -Millisecond 0)
 
 if (!$AzureRMAccount.Context.Tenant) {
