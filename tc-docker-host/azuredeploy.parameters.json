@@ -35,6 +35,9 @@
     },
     "sqlDatabaseName": {
       "value": "teamCityDb"
+    },
+    "timestamp": {
+      "value": 0
     }
   }
 }

@@ -61,6 +61,12 @@
       "metadata": {
         "description": "SQL database name."
       }
+    },
+    "timestamp": {
+        "type": "int",
+        "metadata": {
+            "description": "The current datetime to force the custom script to be deployed"
+        }
     }
   },
   "variables": {
@@ -249,7 +255,8 @@
           "fileUris": [
             "https://raw.githubusercontent.com/Brianmantay/cicd-pipe/master/tc-docker-host/setup.sh"
           ],
-          "commandToExecute": "sh setup.sh"
+          "commandToExecute": "sh setup.sh",
+          "timestamp": "[parameters('timestamp')]"
         }
       }
     }
