@@ -201,7 +201,7 @@
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(variables('vmName'),'/DockerExtension')]",
+      "name": "[concat(variables('vmName'), '/dockerExtension')]",
       "apiVersion": "2015-05-01-preview",
       "location": "[resourceGroup().location]",
       "dependsOn": [
@@ -240,11 +240,11 @@
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(variables('vmName'),'/CustomScript')]",
+      "name": "[concat(variables('vmName'), '/customScript')]",
       "apiVersion": "2015-06-15",
       "location": "[resourceGroup().location]",
       "dependsOn": [
-          "[concat(variables('vmName'),'/DockerExtension')]"
+          "dockerExtension"
       ],
       "properties": {
         "publisher": "Microsoft.Azure.Extensions",
