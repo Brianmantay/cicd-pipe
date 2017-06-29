@@ -1,0 +1,54 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "octopusDnsName": {
+            "value": "octopus-bmantay"
+        },
+        "vmAdminUsername": {
+            "value": "bmantay"
+        },
+        "vmAdminPassword": {
+            "reference": {
+                "keyVault": { 
+                "id": "/subscriptions/a57e3a7f-61b6-4fa1-8efd-f3c63e13ffbd/resourceGroups/keyvault/providers/Microsoft.KeyVault/vaults/keyvault-bmantay"
+                },
+                "secretName": "adminPassword"
+            }
+        },
+        "vmSize": {
+            "value": "Standard_F1"
+        },
+        "sqlAdminUsername": {
+            "value": "bmantay"
+        },
+        "sqlAdminPassword": {
+            "reference": {
+                "keyVault": {
+                "id": "/subscriptions/a57e3a7f-61b6-4fa1-8efd-f3c63e13ffbd/resourceGroups/keyvault/providers/Microsoft.KeyVault/vaults/keyvault-bmantay"
+                },
+                "secretName": "sqlAdminPassword"
+            }
+        },
+        "licenseFullName": {
+            "value": "brian mantay"
+        },
+        "licenseOrganisationName": {
+            "value": "brian"
+        },
+        "licenseEmailAddress": {
+            "value": "bmantay@gmail.com"
+        },
+        "octopusAdminUsername": {
+            "value": "bmantay"
+        },
+        "octopusAdminPassword": {
+            "reference": {
+                "keyVault": { 
+                "id": "/subscriptions/a57e3a7f-61b6-4fa1-8efd-f3c63e13ffbd/resourceGroups/keyvault/providers/Microsoft.KeyVault/vaults/keyvault-bmantay"
+                },
+                "secretName": "adminPassword"
+            }
+        }
+    }
+}
