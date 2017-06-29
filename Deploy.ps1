@@ -12,5 +12,9 @@ New-AzureRmResourceGroupDeployment -Name DockerHost -ResourceGroupName $resource
     -TemplateParameterUri https://raw.githubusercontent.com/Brianmantay/cicd-pipe/master/tc-docker-host/azuredeploy.parameters.json `
     -timestamp $timestamp
 
+New-AzureRmResourceGroupDeployment -Name OctopusServer -ResourceGroupName $resourceGroup `
+    -TemplateUri https://raw.githubusercontent.com/Brianmantay/cicd-pipe/master/octopus-server/azuredeploy.template.json `
+    -TemplateParameterUri https://raw.githubusercontent.com/Brianmantay/cicd-pipe/master/octopus-server/azuredeploy.parameters.json `
+
 
    
