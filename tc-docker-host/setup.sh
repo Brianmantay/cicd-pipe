@@ -1,14 +1,17 @@
 #!/bin/bash
 
 # create host directories for volumes
-sudo mkdir /home/bmantay/tc/data -p && mkdir /home/bmantay/tc/logs -p && mkdir /home/bmantay/tc/conf -p
+sudo mkdir /home/bmantay/tc/data -p && mkdir /home/bmantay/tc/logs -p && mkdir /home/bmantay/tc/conf -p && mkdir /home/bmantay/tc/data/plugins -p
 
 # create dir for db drivers
 sudo mkdir /home/bmantay/tc/data/lib/jdbc -p 
 
 # get the db drivers
 sudo apt-get install wget
-sudo wget https://github.com/Brianmantay/cicd-pipe/raw/master/tc-docker-host/sqljdbc42.jar -P /home/bmantay/tc/data/lib/jdbc/
+sudo wget https://github.com/Brianmantay/cicd-pipe/raw/master/tc-docker-host/lib/sqljdbc42.jar -P /home/bmantay/tc/data/lib/jdbc/
+
+# get the dotnet core plugin 
+sudo wget https://github.com/Brianmantay/cicd-pipe/raw/master/tc-docker-host/plugins/dotnet-core-plugin.zip -P /home/bmantay/tc/data/plugins/
 
 # run server container
 sudo docker run -d --name teamcity-server-instance  \
