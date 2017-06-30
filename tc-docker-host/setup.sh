@@ -24,4 +24,4 @@ sudo docker run -d --name teamcity-server-instance  \
 sudo docker run -d -e SERVER_URL="dockerhost-bmantay.eastus.cloudapp.azure.com:8111" \
 	--name teamcity-agent-instance \
 	-v /home/bmantay/tc/conf:/data/teamcity_agent/conf \
-	jetbrains/teamcity-agent
+	bmantay/teamcity-agent-dotnet
