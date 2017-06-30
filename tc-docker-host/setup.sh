@@ -13,6 +13,9 @@ sudo wget https://github.com/Brianmantay/cicd-pipe/raw/master/tc-docker-host/lib
 # get the dotnet core plugin 
 sudo wget https://github.com/Brianmantay/cicd-pipe/raw/master/tc-docker-host/plugins/dotnet-core-plugin.zip -P /home/bmantay/tc/data/plugins/
 
+# get the octopus plugin
+sudo wget https://github.com/Brianmantay/cicd-pipe/raw/master/tc-docker-host/plugins/Octopus.TeamCity.zip -P /home/bmantay/tc/data/plugins/
+
 # run server container
 sudo docker run -d --name teamcity-server-instance  \
 	-v /home/bmantay/tc/data:/data/teamcity_server/datadir \
