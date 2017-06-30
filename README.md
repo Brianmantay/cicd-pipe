@@ -24,3 +24,11 @@ Database connection setup:
 "allow access to azure resources". I couldn't see where to incorporate this into the ARM template as of yet.
 
 4. The TeamCity Agent Docker conainer is running so go to "Agents > Unauthorized" and authorize it
+
+5. Enable the NuGet feed, go to "Administration > NuGet Feed" then enable 
+
+## Configure Octopus
+
+1. Setup the built in NuGet server at "Library > External Feeds"
+
+2. Create API key for TeamCity to NuGet packages
