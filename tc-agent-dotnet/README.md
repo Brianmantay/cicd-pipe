@@ -1,6 +1,6 @@
 # tc-agent-dotnet
 
-An extension of the jetbrains/teamcity-agent image with dotnet core installed for building dotnet core projects
+An extension of the jetbrains/teamcity-agent image with dotnet core installed for building dotnet core projects and Octopus tool for pushing packages to the Octopus server
 
 ## Build
 
