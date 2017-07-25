@@ -17,14 +17,14 @@ sudo wget https://github.com/Brianmantay/cicd-pipe/raw/master/tc-docker-host/plu
 sudo wget https://github.com/Brianmantay/cicd-pipe/raw/master/tc-docker-host/plugins/Octopus.TeamCity.zip -P /home/bmantay/tc/data/plugins/
 
 # run server container
-sudo docker run -d --name teamcity-server-instance  \
+sudo docker run --restart=always -d --name teamcity-server-instance  \
 	-v /home/bmantay/tc/data:/data/teamcity_server/datadir \
 	-v /home/bmantay/tc/logs:/opt/teamcity/logs  \
 	-p 8111:8111 \
 	jetbrains/teamcity-server
 
 # run agent container
-sudo docker run -d -e SERVER_URL="dockerhost-bmantay.eastus.cloudapp.azure.com:8111" \
+sudo docker run --restart=always -d -e SERVER_URL="dockerhost-bmantay.eastus.cloudapp.azure.com:8111" \
 	--name teamcity-agent-instance \
 	-v /home/bmantay/tc/conf:/data/teamcity_agent/conf \
 	bmantay/teamcity-agent-dotnet
