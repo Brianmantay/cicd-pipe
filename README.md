@@ -2,10 +2,23 @@
 
 An experiment automating the setup of TeamCity and Octopus Deploy in Azure
 
-## Deploy ARM template
 
-This mainly deploys a docker host upon which a TeamCity Server and Agent containers are started. An SQL Database is also 
-deployed and associated JDBC driver required by TeamCity.
+
+## Deploy ARM templates
+
+This deploys a docker host upon which a TeamCity Server and Agent containers are started. The Agent image is customised to support dotnet core. An MSSQL Database is also deployed and associated JDBC driver required by TeamCity.
+
+<a href="http://armviz.io/#/?load=https://raw.githubusercontent.com/Brianmantay/cicd-pipe/master/tc-docker-host/azuredeploy.json" target="_blank">
+  <img src="http://armviz.io/visualizebutton.png"/>
+</a>
+
+An Octopus Deploy template is also deployed, this is pretty much just taken from the Azure Marketplace.
+
+<a href="http://armviz.io/#/?load=https://raw.githubusercontent.com/Brianmantay/cicd-pipe/master/octopus-server/azuredeploy.template.json" target="_blank">
+  <img src="http://armviz.io/visualizebutton.png"/>
+</a>
+
+All secrets are stored in an Azure Ket Vault that is not part of either template.
 
 `./Deploy.ps1`
 
@@ -19,9 +32,6 @@ Database connection setup:
 2. Refresh JDBC drivers to pick up the driver copied during setup.sh
 
 3. Follow through remaining setup
-
-*Note:* TeamCity couldn't connect to the SQL DB because of the firewall. In Azure go to the teamCityDB firewall and... 
-"allow access to azure resources". I couldn't see where to incorporate this into the ARM template as of yet.
 
 4. The TeamCity Agent Docker conainer is running so go to "Agents > Unauthorized" and authorize it
 
